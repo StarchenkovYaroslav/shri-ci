@@ -1,0 +1,58 @@
+name: Test release
+
+on:
+  pull_request:
+    branches:
+      - 'release'
+
+jobs:
+  changelog:
+    name: Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Changelog
+        uses: ./.github/actions/changelog
+        with:
+          myToken: ${{ secrets.MY_TOKEN }}
+          headBranch: ${{ github.head_ref }}
+          pullRequestTitle: ${{ github.event.pull_request.title }}
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Test unit
+        run: npm run test-ci
+
+      - name: Test e2e
+        run: npx playwright install --with-deps chromium && npm run e2e-ci
+
+  testResults:
+    name: Test results
+    needs: [test]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Test results
+        uses: ./.github/actions/test-results
+        with:
+          myToken: ${{ secrets.MY_TOKEN }}
+          jobName: 'Test'
+          pullRequestTitle: ${{ github.event.pull_request.title }}

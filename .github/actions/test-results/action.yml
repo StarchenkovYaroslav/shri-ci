@@ -1,0 +1,6 @@
+name: Init release
+description: Init release
+
+runs:
+  using: node16
+  main: dist/index.js

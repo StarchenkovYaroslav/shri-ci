@@ -1,0 +1,6 @@
+name: Deploy release
+description: Deploy release
+
+runs:
+  using: node16
+  main: dist/index.js

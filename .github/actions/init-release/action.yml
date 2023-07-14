@@ -1,0 +1,11 @@
+name: Init release
+description: Init release
+
+runs:
+  using: node16
+  main: dist/index.js
+
+inputs:
+  Name:
+    description: Who to greet
+    required: true
