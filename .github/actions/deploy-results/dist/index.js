@@ -9650,7 +9650,7 @@ function main() {
                 }
             });
             const commitSHA = responsePull.data[responsePull.data.length - 1].sha;
-            const releaseStateLink = `[Состояние деплоя](https://github.com/StarchenkovYaroslav/shri-ci/tree/${commitSHA})`;
+            const releaseStateLink = `[Состояние деплоя](https://github.com/StarchenkovYaroslav/${github.context.repo.repo}/tree/${commitSHA})`;
             yield octokit.request('POST /repos/{owner}/{repo}/git/refs', {
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
