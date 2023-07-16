@@ -8,7 +8,7 @@ export const About: FC = () => {
         <title>About page</title>
       </Helmet>
       <h1 data-testid="page-title">About</h1>
-      <div>Hello, my dear!</div>
+      <div>Hello, my dear-dear!</div>
       <p>This is an example application.</p>
     </>
   );
