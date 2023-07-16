@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/shri-ci/static/css/main.bca2b5ee.css",
-    "main.js": "/shri-ci/static/js/main.9e837c5c.js",
+    "main.js": "/shri-ci/static/js/main.5610781a.js",
     "index.html": "/shri-ci/index.html",
     "main.bca2b5ee.css.map": "/shri-ci/static/css/main.bca2b5ee.css.map",
-    "main.9e837c5c.js.map": "/shri-ci/static/js/main.9e837c5c.js.map"
+    "main.5610781a.js.map": "/shri-ci/static/js/main.5610781a.js.map"
   },
   "entrypoints": [
     "static/css/main.bca2b5ee.css",
-    "static/js/main.9e837c5c.js"
+    "static/js/main.5610781a.js"
   ]
 }
