@@ -9651,15 +9651,16 @@ function main() {
             const commitMessages = diff.data.commits
                 .filter(commit => !commit.commit.message.includes('Merge pull request'))
                 .map(commit => `- [${commit.commit.message}](${commit.html_url})`).join('\n');
-            const responseIssues = yield octokit.request('GET /repos/{owner}/{repo}/issues', {
+            const responseIssues = yield octokit.paginate(octokit.rest.issues.listForRepo, {
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
+                per_page: 100,
                 labels: 'release',
                 headers: {
                     'X-GitHub-Api-Version': '2022-11-28'
                 }
             });
-            const issue = responseIssues.data.find(issue => issue.title === pullRequestTitle);
+            const issue = responseIssues.find(issue => issue.title === pullRequestTitle);
             if (!issue) {
                 core.setFailed('issue not found');
                 return;
