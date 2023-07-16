@@ -9697,7 +9697,7 @@ function main() {
             yield octokit.request('DELETE /repos/{owner}/{repo}/git/refs/{ref}', {
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
-                ref: `refs/heads/prerelease-v${releaseVersion}`,
+                ref: `heads/prerelease-v${releaseVersion}`,
                 headers: {
                     'X-GitHub-Api-Version': '2022-11-28'
                 }
