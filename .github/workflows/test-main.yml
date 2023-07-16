@@ -13,16 +13,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
       - name: Cache modules
         uses: actions/cache@v3
         with:
           path: ~/.npm
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
 
       - name: Install deps
         run: npm ci
