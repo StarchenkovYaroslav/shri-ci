@@ -1,4 +1,5 @@
 ## Релиз
+
 Для инициации релиза необходимо запустить workflow **Init release** из ветки main.
 ![2023-07-15_02-30-36](https://github.com/StarchenkovYaroslav/shri-ci-result/assets/86304001/d32fd396-7364-4edd-a3f3-9b165c5ebd0a)
 
