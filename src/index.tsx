@@ -13,7 +13,7 @@ if (container) {
 
   const store = initStore()
 
-  root.render(
+      //root.render(
     <BrowserRouter basename='shri-ci'>
       <Provider store={store}>
         <Application />
